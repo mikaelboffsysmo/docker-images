@@ -7,7 +7,9 @@ LABEL maintainer="mikaelboffsysmo" \
       version="1.1"
 
 # Instalação de pacotes necessários e configuração do Google Cloud CLI
-RUN wget -q https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-473.0.0-linux-x86_64.tar.gz -O - | tar -zx && \
+RUN cp /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime && \
+    echo "America/Sao_Paulo" > /etc/timezone && \
+    wget -q https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-473.0.0-linux-x86_64.tar.gz -O - | tar -zx && \
     # Instalar o Google Cloud CLI
     ./google-cloud-sdk/install.sh -q --usage-reporting=false --additional-components beta && \
     # Disponibilizar o binário no PATH
