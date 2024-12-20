@@ -1,9 +1,8 @@
 # Repositório de Build e Deploy de Imagens Docker
 
-Este repositório é usado para criar e publicar duas imagens Docker no Docker Hub:
+Este repositório é usado para criar e publicar imagens Docker no Docker Hub:
 
-- **`node-alpine-git`**: Baseada em `node:18-alpine` com Git instalado.
-- **`node-alpine-deploy`**: Baseada em `node:18-alpine` com Git, Python3, Pip, Wget e Bash instalados.
+- **`node-alpine-gcloud`**: Baseada em `node:18-alpine` com Git, Python3, Pip, Wget e Bash instalados com o Gcloud instalado.
 
 ## Configuração
 
@@ -17,10 +16,9 @@ Este repositório é usado para criar e publicar duas imagens Docker no Docker H
 
 Você pode disparar o workflow manualmente em **Actions > Docker Build and Push**, especificando:
 
-- `image_name`: O nome da imagem (`node-alpine-git` ou `node-alpine-deploy`).
-- `tag`: A tag da imagem (por exemplo, `v1.0.0`, `latest`).
+- `image_name`: O nome da imagem (`node-alpine-gcloud`).
+- `tag`: A tag da imagem (por exemplo, `18`, `19`).
 
 ## Estrutura do Repositório
 
-- `node-alpine-git/`: Dockerfile para a imagem `node-alpine-git`.
-- `node-alpine-deploy/`: Dockerfile para a imagem `node-alpine-deploy`.
+- `node-alpine-gcloud/`: Dockerfile para a imagem `node-alpine-gcloud`.

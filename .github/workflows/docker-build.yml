@@ -5,16 +5,15 @@ on:
     inputs:
       image_name:
         type: choice
-        description: "Escolha a imagem para build (node-alpine-git ou node-alpine-deploy)"
+        description: "Escolha a imagem para build (node-alpine-gcloud)"
         required: true
         options:
-        - node-alpine-git
-        - node-alpine-deploy
-        default: node-alpine-git
+        - node-alpine-gcloud
+        default: node-alpine-gcloud
       tag:
         description: "Tag da imagem Docker"
         required: true
-        default: "latest"
+        default: "18"
 
 jobs:
   build-and-push:
