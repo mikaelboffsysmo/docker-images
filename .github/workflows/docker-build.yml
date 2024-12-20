@@ -9,6 +9,7 @@ on:
         required: true
         options:
         - node-alpine-gcloud
+        - cypress-browsers-gcloud
         default: node-alpine-gcloud
       tag:
         description: "Tag da imagem Docker"
