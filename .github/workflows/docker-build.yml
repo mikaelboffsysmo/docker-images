@@ -10,6 +10,7 @@ on:
         options:
         - node-alpine-gcloud
         - cypress-browsers-gcloud
+        - debian-graalvm-maven
         default: node-alpine-gcloud
       tag:
         description: "Tag da imagem Docker"
