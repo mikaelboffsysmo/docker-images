@@ -8,7 +8,7 @@ LABEL maintainer="mikaelboffsysmo" \
 # Variáveis
 ENV MANDREL_VERSION=23.0.6.0-Final
 ENV MANDREL_DIR=mandrel-java17-${MANDREL_VERSION}
-ENV MANDREL_URL=https://github.com/graalvm/mandrel/releases/download/mandrel-${MANDREL_VERSION}/${MANDREL_DIR}-linux-amd64-${MANDREL_VERSION}.tar.gz
+ENV MANDREL_URL=https://github.com/graalvm/mandrel/releases/download/mandrel-${MANDREL_VERSION}/mandrel-java17-linux-amd64-${MANDREL_VERSION}.tar.gz
 ENV MAVEN_VERSION=3.6.3
 ENV MAVEN_DIR=apache-maven-${MAVEN_VERSION}
 
