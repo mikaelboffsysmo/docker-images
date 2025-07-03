@@ -2,11 +2,11 @@ FROM debian:10
 
 # Metadados da imagem
 LABEL maintainer="mikaelboffsysmo" \
-      description="Imagem baseada em Debian 10, com GraalVM Mandrel Java 17 23.0.6.0-Final e Maven 3.6.3" \
-      version="1.0"
+      description="Imagem baseada em Debian 10, com GraalVM Mandrel Java 17 22.3.5.0-Final e Maven 3.6.3" \
+      version="2.0"
 
 # Variáveis
-ENV MANDREL_VERSION=23.0.6.0-Final
+ENV MANDREL_VERSION=22.3.5.0-Final
 ENV MANDREL_DIR=mandrel-java17-${MANDREL_VERSION}
 ENV MANDREL_URL=https://github.com/graalvm/mandrel/releases/download/mandrel-${MANDREL_VERSION}/mandrel-java17-linux-amd64-${MANDREL_VERSION}.tar.gz
 ENV MAVEN_VERSION=3.6.3
