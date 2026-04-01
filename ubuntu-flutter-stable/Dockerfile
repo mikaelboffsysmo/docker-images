@@ -9,7 +9,7 @@ LABEL maintainer="mikaelboffsysmo" \
 # Evitar diálogos interativos durante a instalação
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Instalar dependências básicas
+# Instalar dependências básicas, locales e software-properties-common
 RUN apt-get update && apt-get install -y \
     curl \
     git \
@@ -18,12 +18,25 @@ RUN apt-get update && apt-get install -y \
     zip \
     libglu1-mesa \
     openjdk-21-jdk \
-    ruby-full \
     build-essential \
     libsqlite3-dev \
+    locales \
+    software-properties-common \
     && rm -rf /var/lib/apt/lists/*
 
-# Instalar Fastlane
+# Configurar Locale para UTF-8 pt_BR (Exigência do Fastlane)
+RUN locale-gen pt_BR.UTF-8
+ENV LANG pt_BR.UTF-8
+ENV LANGUAGE pt_BR:pt
+ENV LC_ALL pt_BR.UTF-8
+
+# Instalar Ruby 3.2 (Exigência futura do Fastlane) via PPA Brightbox
+RUN add-apt-repository ppa:brightbox/ruby-ng -y && \
+    apt-get update && \
+    apt-get install -y ruby3.2 ruby3.2-dev && \
+    rm -rf /var/lib/apt/lists/*
+
+# Instalar Fastlane e Bundler
 RUN gem install fastlane bundler -NV
 
 # Configurar variáveis de ambiente para Android e Java
@@ -44,7 +57,6 @@ RUN yes | sdkmanager --licenses && \
     sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0"
 
 # Instalar Flutter (Estável)
-# O canal estável do Flutter (atualmente 3.24+ ou superior) garantirá Dart 3.9+ compatível com seu pubspec.
 ENV FLUTTER_HOME=/opt/flutter
 ENV PATH=$PATH:$FLUTTER_HOME/bin
 
