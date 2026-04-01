@@ -11,6 +11,7 @@ on:
         - node-alpine-gcloud
         - cypress-browsers-gcloud
         - debian-graalvm-maven
+        - ubuntu-flutter-stable
         default: node-alpine-gcloud
       tag:
         description: "Tag da imagem Docker"
