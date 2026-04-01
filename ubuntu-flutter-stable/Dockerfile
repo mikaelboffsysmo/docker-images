@@ -18,6 +18,7 @@ RUN apt-get update && apt-get install -y \
     zip \
     libglu1-mesa \
     openjdk-21-jdk \
+    ruby-full \
     build-essential \
     libsqlite3-dev \
     locales \
@@ -30,11 +31,10 @@ ENV LANG pt_BR.UTF-8
 ENV LANGUAGE pt_BR:pt
 ENV LC_ALL pt_BR.UTF-8
 
-# Instalar Ruby 3.2 (Exigência futura do Fastlane) via PPA Brightbox
-RUN add-apt-repository ppa:brightbox/ruby-ng -y && \
-    apt-get update && \
-    apt-get install -y ruby3.2 ruby3.2-dev && \
-    rm -rf /var/lib/apt/lists/*
+# Instalar GitLab CLI (glab)
+RUN curl -L https://gitlab.com/gitlab-org/cli/-/releases/v1.53.0/downloads/glab_1.53.0_linux_amd64.deb -o glab.deb && \
+    dpkg -i glab.deb && \
+    rm glab.deb
 
 # Instalar Fastlane e Bundler
 RUN gem install fastlane bundler -NV
