@@ -24,7 +24,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Instalar Fastlane
-RUN gem install fastlane -NV
+RUN gem install fastlane bundler -NV
 
 # Configurar variáveis de ambiente para Android e Java
 ENV JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
