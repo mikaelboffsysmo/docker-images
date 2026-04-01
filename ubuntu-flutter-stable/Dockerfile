@@ -32,7 +32,7 @@ ENV LANGUAGE pt_BR:pt
 ENV LC_ALL pt_BR.UTF-8
 
 # Instalar GitLab CLI (glab)
-RUN curl -L https://gitlab.com/gitlab-org/cli/-/releases/v1.53.0/downloads/glab_1.53.0_linux_amd64.deb -o glab.deb && \
+RUN curl -L https://gitlab.com/gitlab-org/cli/-/releases/v1.91.0/downloads/glab_1.91.0_linux_amd64.deb -o glab.deb && \
     dpkg -i glab.deb && \
     rm glab.deb
 
