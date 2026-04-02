@@ -52,9 +52,12 @@ RUN mkdir -p $ANDROID_SDK_ROOT/cmdline-tools && \
     mv $ANDROID_SDK_ROOT/cmdline-tools/cmdline-tools $ANDROID_SDK_ROOT/cmdline-tools/latest && \
     rm cmdline-tools.zip
 
-# Aceitar licenças e instalar Platform Tools e Build Tools
+# Aceitar licenças e instalar Platform Tools e Build Tools (Versões detectadas no log como necessárias)
 RUN yes | sdkmanager --licenses && \
-    sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0"
+    sdkmanager "platform-tools" \
+    "platforms;android-34" "platforms;android-35" "platforms;android-36" \
+    "build-tools;34.0.0" "build-tools;35.0.0" \
+    "ndk;27.2.12479018" "ndk;28.2.13676358" "cmake;3.22.1"
 
 # Instalar Flutter (Estável)
 ENV FLUTTER_HOME=/opt/flutter
